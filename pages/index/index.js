@@ -6,7 +6,11 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    array: [1,2,3,4],
     hasUserInfo: false,
+    a: 1,
+    b: 2,
+    c: 3,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
@@ -46,12 +50,15 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  onGotUserInfo: function(e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.userInfo)
+    console.log(e.detail.rawData)
     console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    // app.globalData.userInfo = e.detail.userInfo
+    // this.setData({
+    //   userInfo: e.detail.userInfo,
+    //   hasUserInfo: true
+    // })
   }
 })

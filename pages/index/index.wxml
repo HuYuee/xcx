@@ -1,14 +1,23 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindtap="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
+    <button  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"> 获取头像昵称 </button>
+    <!-- <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    </block> -->
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
     <button bindtap="onClick">click</button>
+    <view wx:for="{{array}}">{{array}}</view>
+    <view>{{"b的数字为：" + b}} + {{c}} + d</view>
+  </view>
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+    <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+      <view wx:if="{{i <= j}}">
+        {{i}} * {{j}} = {{i * j}}
+      </view>
+    </view>
   </view>
 </view>
